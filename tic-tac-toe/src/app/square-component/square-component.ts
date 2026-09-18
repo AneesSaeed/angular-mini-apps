@@ -1,4 +1,5 @@
 import { Component, input, output } from '@angular/core';
+import { SquareValue } from '../model/tic-tac-toe.types';
 
 @Component({
   imports: [],
@@ -7,7 +8,7 @@ import { Component, input, output } from '@angular/core';
   templateUrl: './square-component.html',
 })
 export class SquareComponent {
-  value = input<'X' | 'O' | null>(null)
+  value = input<SquareValue>(null)
   buttonClicked = output<void>();
 
   onButtonClicked() {

@@ -1,5 +1,6 @@
 import { Component, computed, signal } from '@angular/core';
 import { SquareComponent } from '../square-component/square-component';
+import { SquareValue } from '../model/tic-tac-toe.types';
 
 @Component({
   imports: [SquareComponent],
@@ -9,7 +10,7 @@ import { SquareComponent } from '../square-component/square-component';
 })
 export class BoardComponent {
   
-  squares = signal(Array(9).fill(null));
+  squares = signal<SquareValue[]>(Array(9).fill(null));
   isPlayerX = signal<boolean>(true)
   
   winner = computed(() => {
@@ -35,7 +36,7 @@ export class BoardComponent {
     this.isPlayerX.update(isX => !isX);
   }
 
-  calculateWinner(squares: Array<'X' | 'O' | null>): 'X' | 'O' | null {
+  calculateWinner(squares: Array<SquareValue>): SquareValue {
     const lines = [
       [0, 1, 2], [3, 4, 5], [6, 7, 8], // Rows
       [0, 3, 6], [1, 4, 7], [2, 5, 8], // Columns
