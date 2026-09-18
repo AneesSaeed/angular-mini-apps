@@ -1,0 +1,8 @@
+<div>
+    <h3>Todos List</h3>
+    @for (todo of todoItems(); track todo.id) {
+        <app-todo-item [todoItem]="todo" (todoToggled)="updateToggleState($event)"/>
+    } @empty {
+        <p>Nothing to do!</p>
+    }
+</div>

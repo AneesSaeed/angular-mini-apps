@@ -1,0 +1,25 @@
+header {
+    padding: 8px 16px;
+    background-color: aquamarine;
+
+    nav {
+       display: flex;
+       justify-content: space-between;
+       align-items: center;
+ 
+       > span {
+           cursor: pointer;
+       }
+       ul {
+        list-style: none;
+        padding: 0.5rem;
+        border-radius: 10% 25%;
+        cursor: pointer;
+
+
+        &:hover{
+            background-color: blue;
+        }
+       }
+    }
+}
