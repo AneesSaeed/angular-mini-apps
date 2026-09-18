@@ -1,15 +1,21 @@
 <main>
-    <div>
-        <button (click)="startNewGame()">Start new game</button>
-    </div>
+    <section class="info-section">
+        <button 
+            (click)="startNewGame()"
+            class="start-new-game-btn"
+        >
+            Start new game
+        </button>
+     
+        @if (winner()) {
+            <h2>winner is {{ winner() }}</h2>
+        }@else if (isDraw()) {
+            <h2>It's a draw</h2>
+        }@else {
+            <h2>Current turn: {{ isPlayerX() ? 'X' : 'O' }}</h2>
+        }
+    </section>
 
-    @if (winner()) {
-        <h2>winner is {{ winner() }}</h2>
-    }@else if (isDraw()) {
-        <h2>It's a draw</h2>
-    }@else {
-        <h2>Current turn: {{ isPlayerX() ? 'X' : 'O' }}</h2>
-    }
 
     <section class="board-section">
         @for (square of squares(); track $index) {

@@ -7,7 +7,28 @@ main {
     min-height: 80vh;
 }
 
+.info-section {
+    display: flex;
+    justify-content: space-between;
+    width: 24rem;
+    margin-bottom: 1rem;
+}
+
 .board-section {
     display: grid;
     grid-template-columns: repeat(3, 8rem);
+}
+
+
+.start-new-game-btn {
+    background-color: #c85bfa;
+    color: #ffffff;
+    padding: .5rem;
+    border: none;
+    border-radius: .2rem;
+    cursor: pointer;
+}
+
+.start-new-game-btn:hover {
+    opacity: 0.9;
 }

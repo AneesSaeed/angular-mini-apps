@@ -1,6 +1,5 @@
 import { Component, computed, signal } from '@angular/core';
 import { SquareComponent } from '../square-component/square-component';
-import { every } from 'rxjs';
 
 @Component({
   imports: [SquareComponent],
