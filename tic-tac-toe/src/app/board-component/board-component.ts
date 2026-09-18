@@ -1,6 +1,7 @@
-import { Component, computed, signal } from '@angular/core';
+import { Component, computed, effect, signal } from '@angular/core';
 import { SquareComponent } from '../square-component/square-component';
 import { SquareValue } from '../model/tic-tac-toe.types';
+import confetti from 'canvas-confetti';
 
 @Component({
   imports: [SquareComponent],
@@ -16,6 +17,16 @@ export class BoardComponent {
   winner = computed(() => {
     return this.calculateWinner(this.squares());
   })
+
+  constructor() {
+    effect(() => {
+      const winningPlayer = this.winner();
+      
+      if (winningPlayer) {
+        this.launchConfetti();
+      }
+    });
+  }
 
   isDraw = computed(() => {
     const hasNoWinner = this.winner() == null;
@@ -56,5 +67,13 @@ export class BoardComponent {
   startNewGame() {
     this.squares.set(Array(9).fill(null))
     this.isPlayerX.set(true);
+  }
+
+  private launchConfetti(): void {
+    confetti({
+      particleCount: 100,
+      spread: 70,
+      origin: { y: 0.6 }
+    });
   }
 }
