@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, input, output } from '@angular/core';
 
 @Component({
   imports: [],
@@ -6,4 +6,11 @@ import { Component } from '@angular/core';
   styleUrl: './square-component.scss',
   templateUrl: './square-component.html',
 })
-export class SquareComponent {}
+export class SquareComponent {
+  value = input<'X' | 'O' | null>(null)
+  buttonClicked = output<void>();
+
+  onButtonClicked() {
+    this.buttonClicked.emit()
+  }
+}

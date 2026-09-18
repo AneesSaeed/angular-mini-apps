@@ -1,0 +1,13 @@
+@if (winner()) {
+    <h2>winner is {{ winner() }}</h2>
+}
+
+<main>
+    @for (square of squares(); track $index) {
+        <app-square-component 
+            [value]="square"
+            (buttonClicked)="handleMove($index)"
+        >
+        </app-square-component>
+    }
+</main>
