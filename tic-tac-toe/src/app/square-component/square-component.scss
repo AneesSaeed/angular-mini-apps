@@ -1,4 +1,19 @@
 button {
     width: 8rem;
     height: 8rem;
+
+    font-size: 3.5rem;
+    font-weight: bold;
+
+    &.symbol-x {
+        color: palevioletred;
+        background-color: #ffebee;
+        border-color: lightcoral;
+    }
+
+    &.symbol-o {
+        color: darkcyan;
+        background-color: #e3f2fd;
+        border-color: lightblue;
+    }
 }

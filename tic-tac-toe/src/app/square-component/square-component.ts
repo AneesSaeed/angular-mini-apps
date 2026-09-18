@@ -1,8 +1,9 @@
 import { Component, input, output } from '@angular/core';
 import { SquareValue } from '../model/tic-tac-toe.types';
+import { SymbolStyle } from '../directives/symbol-style';
 
 @Component({
-  imports: [],
+  imports: [SymbolStyle],
   selector: 'app-square-component',
   styleUrl: './square-component.scss',
   templateUrl: './square-component.html',
