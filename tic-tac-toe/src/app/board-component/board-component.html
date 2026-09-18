@@ -1,7 +1,12 @@
 @if (winner()) {
     <h2>winner is {{ winner() }}</h2>
+}@else if (isDraw()) {
+    <h2>It's a draw</h2>
+}@else {
+    <h2>Current turn: {{ isPlayerX() ? 'X' : 'O' }}</h2>
 }
 
+<button (click)="startNewGame()">Start new game</button>
 <main>
     @for (square of squares(); track $index) {
         <app-square-component 
@@ -11,3 +16,5 @@
         </app-square-component>
     }
 </main>
+
+
