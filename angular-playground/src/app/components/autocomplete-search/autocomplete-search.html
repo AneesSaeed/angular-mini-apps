@@ -1,0 +1,27 @@
+<div class="search">
+  <input 
+    class="search__input"
+    placeholder="Search..."
+    [formControl]="searchControl"
+  >
+
+  @if (isLoading() || errorMessage() || results().length > 0) {
+    <div class="search__panel">
+      @if (isLoading()) {
+        <div class="search__loader-container">
+            <span class="search__loader"></span>
+        </div>
+      }
+      
+      @if (errorMessage()) {
+        <p class="search__error">{{ errorMessage() }}</p>
+      }
+
+      @for (result of results(); track result.id) {
+        <p class="search__item">
+          <strong>{{ result.name }}</strong> ({{ result.username }})
+        </p>
+      }
+    </div>
+  }
+</div>
