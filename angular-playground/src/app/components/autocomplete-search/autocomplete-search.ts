@@ -16,7 +16,7 @@ export class AutocompleteSearch {
   
   searchControl = new FormControl('', { nonNullable: true})
 
-  isLoading = signal<boolean>(true);
+  isLoading = signal<boolean>(false);
   errorMessage = signal<string>('');
 
   readonly results = toSignal(
