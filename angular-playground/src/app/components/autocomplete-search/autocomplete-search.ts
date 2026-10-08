@@ -20,8 +20,7 @@ export class AutocompleteSearch {
   errorMessage = signal<string>('');
 
   readonly results = toSignal(
-      this.searchControl.valueChanges.pipe(
-      takeUntilDestroyed(),
+    this.searchControl.valueChanges.pipe(
       map(term => term.trim()),
       debounceTime(300),
       distinctUntilChanged(),
